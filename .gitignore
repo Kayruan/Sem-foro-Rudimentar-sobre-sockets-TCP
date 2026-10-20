@@ -1,0 +1,20 @@
+# Binarios gerados pela compilacao
+bin/
+*.exe
+*.o
+
+# Binarios do Linux (sem extensao)
+servidor
+cliente
+
+# Logs e saidas de teste
+*.log
+cli_*.txt
+
+# Python (gerador do PDF)
+__pycache__/
+*.pyc
+
+# Sistema operacional
+Thumbs.db
+.DS_Store

@@ -279,7 +279,7 @@ Trabalho CP/
 |   |-- Trabalho.md                 enunciado do trabalho
 |-- bin/                    binarios gerados pela compilacao
 |-- Makefile                build e demo no Linux/WSL
-|-- LEIAME.md               documentacao resumida
+|-- README.md               documentacao do repositorio
 """))
     h.append(P(
         "Apenas dois arquivos-fonte. O servidor tem cerca de 330 linhas e o "
