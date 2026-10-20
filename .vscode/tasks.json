@@ -1,0 +1,50 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Compilar tudo (servidor + cliente)",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}\\scripts\\compilar.ps1"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": ["$gcc"],
+            "group": { "kind": "build", "isDefault": true },
+            "detail": "Compila src/*.c para bin/ com -O2 -Wall e -lws2_32"
+        },
+        {
+            "type": "shell",
+            "label": "Rodar demo (5 clientes)",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}\\scripts\\rodar_demo.ps1"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": [],
+            "dependsOn": "Compilar tudo (servidor + cliente)",
+            "detail": "Sobe o servidor e dispara 5 clientes simultaneos"
+        },
+        {
+            "type": "cppbuild",
+            "label": "Compilar apenas o arquivo aberto",
+            "command": "C:\\Users\\kayru\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\mingw64\\bin\\gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-O2",
+                "-Wall",
+                "-g",
+                "${file}",
+                "-o",
+                "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
+                "-lws2_32"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": ["$gcc"],
+            "group": "build",
+            "detail": "Compila so o .c em foco para bin/"
+        }
+    ]
+}
